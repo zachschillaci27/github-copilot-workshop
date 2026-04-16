@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# VS Code local (checked in: settings.json, mcp.json)
+.vscode/*.local.json
+.vscode/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code local (kept alongside for interop, but local overrides aren't shared)
+.claude/settings.local.json
+.claude/.mcp.local.json
+
+# Environment / secrets
+.env
+.env.local
+
+# Facilitator notes (optional private checklist — not shared with attendees)
+FACILITATOR.md

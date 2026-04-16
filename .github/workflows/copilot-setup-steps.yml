@@ -1,0 +1,34 @@
+name: "Copilot Setup Steps"
+
+# Environment preparation for the Copilot Coding Agent.
+# The agent runs these steps in its ephemeral workspace *before* your prompt
+# starts, so `uv sync` / test runs are ready to go on the first turn.
+#
+# Must live on the default branch to take effect.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.11
+
+      - name: Sync dependencies
+        run: uv sync
+
+      - name: Verify tests pass
+        run: uv run pytest -q

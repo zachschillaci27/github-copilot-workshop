@@ -1,0 +1,19 @@
+{
+  "inputs": [
+    {
+      "id": "github-pat",
+      "type": "promptString",
+      "description": "GitHub fine-grained personal access token (read/write issues + PRs)",
+      "password": true
+    }
+  ],
+  "servers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:github-pat}"
+      }
+    }
+  }
+}
