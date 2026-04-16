@@ -18,7 +18,7 @@ In the Chat view (agent mode):
 Always work on a dedicated branch — never directly on `main`.
 
 ### Step 2 — Plan with Planner mode
-Switch the mode picker to **Planner** and ask:
+Switch the agent picker to **Planner** and ask:
 > I need to add a search endpoint for tasks. Plan the implementation —
 > what files need to change, what's the API shape, and what tests are needed?
 
@@ -29,6 +29,12 @@ Switch back to **Agent**. Run:
 ```
 /add-endpoint GET /api/v1/tasks/search — search tasks by title and description using a query parameter `q`
 ```
+
+> Note: Exercise 4.3 added a `search` query parameter to the existing
+> `GET /api/v1/tasks` endpoint. This exercise creates a *separate*
+> `/api/v1/tasks/search` route instead — the point is the end-to-end
+> workflow, not the API shape. If you still have the 4.3 changes in your
+> tree, revert with `git checkout src/ tests/` first.
 
 The agent will:
 1. Read `src/taskflow/routers/tasks.py` for the pattern

@@ -50,7 +50,8 @@ Notice the **References** panel — Copilot lists the files it read, including
 Accept the diff with `Tab`/`Enter`.
 
 ### 1.3 — Ask / Edit / Agent Modes
-At the bottom of the Chat view there's a mode picker. Try each:
+At the bottom of the Chat view there's an agent picker (VS Code used to call
+this the "mode picker" before the early-2026 rename — same control). Try each:
 
 | Mode | What it does | Use when |
 |------|-------------|----------|

@@ -135,8 +135,9 @@ source, call it out in your summary — do **not** silently patch production cod
 > [custom agents reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
 > for the full alias list.
 
-Switch to the new **test-writer** agent (or whatever the `description` name
-resolves to) and ask:
+Switch to the new **test-writer** agent (the picker shows the `description`
+string, so look for *"Test engineer — adds comprehensive tests, runs pytest"*)
+and ask:
 > Add comprehensive tests for the user endpoints.
 
 ### 6.4 — Create a research-only agent

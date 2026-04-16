@@ -8,7 +8,7 @@ safe.
 ## Concepts
 
 ### What is agent mode?
-A built-in Chat mode (selected via the agent/mode picker) where Copilot can:
+A built-in Chat mode (selected via the agent picker) where Copilot can:
 - Read and edit **multiple files** in one turn
 - Run terminal commands (via allowlist) and iterate on output
 - Call MCP tools
@@ -42,6 +42,12 @@ Switch to **Agent** mode. Ask:
 > Add a `due_date: datetime | None` optional field to the `Task` and
 > `TaskCreate` models. Update the database seed data to include a due date
 > for the first task. Then run the tests.
+
+> The `due_date` field shows up again in Exercise 9 (Challenge D) and the
+> facilitator's wrap-up demo. If you ran 1.4 already and still have those
+> edits, revert with `git checkout src/ tests/` so this exercise starts
+> from a clean slate — the point here is the multi-file orchestration, not
+> the field itself.
 
 Watch Copilot:
 1. Read `models.py`, `database.py`, `test_models.py`, `test_tasks.py`

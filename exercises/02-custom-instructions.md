@@ -48,6 +48,11 @@ Switch to **Agent** mode and ask:
 > Create a new utility function called `format_task_id` that takes an
 > integer and returns a string like `TASK-001`.
 
+> If you already drafted this in Exercise 1.1's inline-completion demo,
+> revert that change first (`git checkout src/taskflow/utils.py`) so Copilot
+> writes it from scratch — the goal here is to watch instruction-driven
+> behaviour, not autocomplete.
+
 Check that Copilot follows the conventions:
 - Type hints? ✓/✗
 - Placed in `src/taskflow/utils.py`? ✓/✗

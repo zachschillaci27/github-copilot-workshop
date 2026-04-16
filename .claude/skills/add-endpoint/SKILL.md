@@ -1,15 +1,11 @@
 ---
 name: add-endpoint
 description: Scaffold a new API endpoint with tests
-argument-hint: "[description of the endpoint]"
-allowed-tools: Read, Write, Edit, Bash, Grep, Glob
-context: fork
-agent: general-purpose
 ---
 
 # Add New Endpoint
 
-Create a new API endpoint for: $ARGUMENTS
+Create a new API endpoint matching the description the user provides.
 
 ## Steps
 

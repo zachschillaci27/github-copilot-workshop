@@ -1,7 +1,7 @@
 """In-memory database for the TaskFlow API.
 
 Uses a simple dict-based store. In a real app, you'd use SQLAlchemy or similar.
-This keeps the workshop focused on Claude Code features, not database setup.
+This keeps the workshop focused on GitHub Copilot features, not database setup.
 """
 
 import uuid
