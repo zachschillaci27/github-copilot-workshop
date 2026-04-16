@@ -121,7 +121,8 @@ project can be instrumented for multiple coding agents:
 
 ```
 CLAUDE.md                           # Project instructions Claude Code reads
-.claude/skills/                     # Claude-flavoured equivalents of prompt files
+.claude/skills/add-endpoint/        # Single Claude skill kept as a side-by-side
+                                    # reference to .github/prompts/add-endpoint.prompt.md
 ```
 
 Copilot doesn't read these, and Claude doesn't read the `.github/` files —

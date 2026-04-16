@@ -47,14 +47,9 @@ Open the Chat view (`Ctrl/Cmd+Alt+I`) and ask:
 Notice the **References** panel — Copilot lists the files it read, including
 `.github/copilot-instructions.md`.
 
-### 1.3 — Inline Chat (Quick Fix)
-Open `src/taskflow/main.py`, select the `health_check` function, press
-`Ctrl/Cmd+I` to open inline chat, and ask:
-> Add a description field that returns "TaskFlow health check".
-
 Accept the diff with `Tab`/`Enter`.
 
-### 1.4 — Ask / Edit / Agent Modes
+### 1.3 — Ask / Edit / Agent Modes
 At the bottom of the Chat view there's a mode picker. Try each:
 
 | Mode | What it does | Use when |
@@ -66,7 +61,7 @@ At the bottom of the Chat view there's a mode picker. Try each:
 Run the same prompt in each mode and notice the difference:
 > Add a `due_date: datetime | None = None` optional field to `TaskCreate`.
 
-### 1.5 — Agent Mode + Terminal
+### 1.4 — Agent Mode + Terminal
 Switch to **Agent** mode and ask:
 > Add the due_date field to the Task model too, then run the tests and
 > tell me if anything broke.
@@ -75,25 +70,24 @@ Watch Copilot edit multiple files, run `uv run pytest`, and iterate if tests
 fail. The **Restore Checkpoint** button in the Chat header reverts everything in one
 click.
 
-### 1.6 — Attach Files and Selections
+### 1.5 — Attach Files and Selections
 Type `#` in the chat input to browse context references:
 - `#file:src/taskflow/models.py` — attach a whole file
 - Select code in the editor → `#selection` picks it up automatically
 - `#codebase what are the task statuses?` — semantic search the whole repo
 
-### 1.7 — Built-in Slash Commands
+### 1.6 — Built-in Slash Commands
 In the Chat input, type `/` — you'll see built-ins plus the custom prompt
 files this repo ships:
 - `/explain` — explain the selection
 - `/fix` — fix the error in the selection
 - `/tests` — generate tests for the selection
-- `/doc` — generate doc comments
 - `/new` — scaffold a new file or workspace
 - `/clear` — start a fresh chat session
 
 Try: select `create_task` in `database.py` → `/tests`.
 
-### 1.8 — Interrupt & Recover
+### 1.7 — Interrupt & Recover
 While Copilot is running in Agent mode, click the **Stop** button (or press
 the hotkey shown in the Chat). Then:
 - Click the **Restore Checkpoint** indicator to revert its edits in one click
@@ -101,7 +95,6 @@ the hotkey shown in the Chat). Then:
 
 ## Key Takeaways
 - Inline suggestions complete code as you type (`Tab` / `Alt+]`)
-- Chat view (`Ctrl/Cmd+Alt+I`) for conversations; inline chat (`Ctrl/Cmd+I`) for surgical edits
 - Mode picker: Ask (read) → Edit (propose diff) → Agent (act)
 - `#file`, `#selection`, `#codebase` attach context; `/slash` runs a prompt
 - Agent mode pairs with **checkpoints** — one-click revert
