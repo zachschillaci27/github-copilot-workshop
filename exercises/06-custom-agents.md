@@ -38,7 +38,7 @@ Configurable via `chat.agentFilesLocations` in `settings.json`.
 | `tools` | Array of allowed tool IDs (namespaced) |
 | `model` | (optional) Pin a single model or a prioritised array |
 | `name` | (optional) Display name; defaults to filename |
-| `argument-hint` | (optional) Placeholder text |
+| `argument-hint` | (optional) Placeholder text — explicitly documented for prompt files; likely also valid for agents |
 | `agents` | (optional) Which sub-agents this agent may invoke (`*` for all) |
 
 ### Tool IDs — use the namespaced form

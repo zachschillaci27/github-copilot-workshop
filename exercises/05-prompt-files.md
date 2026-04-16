@@ -37,10 +37,11 @@ setting.
 
 ### Variables
 - `${selection}` — the current editor selection
-- `${file}` — the active file
-- `${workspaceFolder}` — repo root
 - `${input:variableName}` — prompt the user for input
 - `${input:variableName:placeholder}` — prompt with a placeholder hint
+- `${file}` and `${workspaceFolder}` — general VS Code variables that may
+  also resolve inside prompt files (only `${selection}` and `${input:…}`
+  are explicitly documented as prompt-file variables)
 
 ### Dynamic context
 Use chat variables inside the prompt body:

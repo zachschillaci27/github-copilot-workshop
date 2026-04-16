@@ -24,10 +24,10 @@ Copilot Coding Agent — all exercised against a real Python FastAPI project.
 - Python 3.11+
 - [uv](https://docs.astral.sh/uv/) installed (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
 - [Visual Studio Code](https://code.visualstudio.com/) with the **GitHub Copilot** and **GitHub Copilot Chat** extensions
-- A GitHub account with an active Copilot subscription (Free, Pro, Business, or Enterprise)
+- A GitHub account with an active Copilot subscription — any tier works: Free, Student, Pro, Pro+, Business, or Enterprise (note: the model picker and Copilot Coding Agent are gated on Pro and above)
 
 Optional but referenced in some exercises:
-- [GitHub CLI](https://cli.github.com/) with the Copilot extension (`gh extension install github/gh-copilot`)
+- The standalone [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-cli) if you want terminal-native chat (the old `gh copilot` extension has been retired in favour of this)
 - A fine-grained GitHub personal access token (for the GitHub MCP exercise)
 
 ## Quick Start

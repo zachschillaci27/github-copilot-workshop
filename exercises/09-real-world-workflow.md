@@ -85,9 +85,9 @@ In the issue's right sidebar, set **Assignees** → `Copilot`. Within a
 minute, a draft PR appears linked to the issue. Copilot posts its
 implementation plan as the first comment.
 
-> **Permissions:** you can also trigger or iterate the coding agent with
-> `@copilot` mentions in comments — but only users with **write access** to
-> the repo can do so. Read-only collaborators cannot summon the agent.
+> **Permissions:** `@copilot`-mention triggering is gated behind repo
+> permissions — read-only collaborators typically cannot summon the agent.
+> Exact policy is controlled by your org's Copilot settings.
 
 ### Step C — Watch the agent work
 Open the PR's **Files changed** tab. The agent commits iteratively. You'll

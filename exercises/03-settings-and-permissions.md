@@ -72,7 +72,7 @@ git checkout .vscode/settings.json
 ```
 
 ### 3.4 — Per-language enablement
-Open VS Code user settings (`Cmd/Ctrl+,`, click the `{}` icon for JSON).
+Open VS Code user settings (`Ctrl/Cmd+,`, click the `{}` icon for JSON).
 Edit `github.copilot.enable`:
 ```json
 "github.copilot.enable": {
