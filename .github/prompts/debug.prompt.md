@@ -1,5 +1,5 @@
 ---
-mode: ask
+agent: ask
 description: Investigate a bug or error message
 ---
 

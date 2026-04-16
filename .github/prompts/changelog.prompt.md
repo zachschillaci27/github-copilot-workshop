@@ -1,5 +1,5 @@
 ---
-mode: ask
+agent: ask
 description: Generate a changelog entry from recent commits
 ---
 

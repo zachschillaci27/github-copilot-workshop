@@ -50,7 +50,8 @@ Click the model name at the bottom of the Chat input. Tiers typically:
 - **Lightweight** — quick edits, high-volume completions
 - **Vision** — image + code
 
-Availability varies by plan (Free / Pro / Pro+ / Business / Enterprise).
+The model picker is available on Pro, Pro+, Business, and Enterprise.
+Free plans get the default model only.
 
 ## Tasks
 

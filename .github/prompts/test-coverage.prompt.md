@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: Analyze test coverage and propose missing tests
 ---
 

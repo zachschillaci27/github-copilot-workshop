@@ -22,12 +22,12 @@ model selection, and content exclusion.
 | `chat.agent.maxRequests` | Cap on agent tool calls per turn (default 25) |
 | `chat.checkpoints.enabled` | Revertable agent edits |
 | `chat.tools.terminal.enableAutoApprove` | Master switch for terminal allowlist |
-| `chat.tools.terminal.autoApprove` | Allow/deny map for terminal commands |
+| `chat.tools.terminal.autoApprove` | Allow/deny map for terminal commands (keys: literal command or `/^regex/flags`) |
 | `chat.tools.edits.autoApprove` | Which edit tools bypass approval |
 | `github.copilot.chat.codesearch.enabled` | Enable automatic `#codebase` discovery |
 | `chat.promptFilesLocations` | Extra locations to search for prompt files |
 | `chat.instructionsFilesLocations` | Extra locations for instructions |
-| `chat.modeFilesLocations` | Extra locations for chat modes |
+| `chat.agentFilesLocations` | Extra locations for custom agents (formerly "chat modes") |
 | `chat.mcp.access` | Enable MCP server usage |
 
 ## Tasks
@@ -58,6 +58,11 @@ read-only commands only:
   "sudo": false
 }
 ```
+
+> **Key format.** A key that starts and ends with `/` is treated as a
+> JavaScript-style regex (with optional trailing flags like `i`). Any other
+> key is matched as a literal command prefix. Because the key is a JSON
+> string, you still need to JSON-escape backslashes (note the `\\b` above).
 Now ask Copilot to run the tests. It will prompt for approval on every run —
 useful on a production machine or unfamiliar codebase.
 
@@ -88,8 +93,8 @@ like:
 - Deep reasoning (for multi-step or ambiguous tasks)
 - Lightweight (for fast, focused edits)
 
-> Availability depends on your plan. The full picker is gated on Copilot Pro+,
-> Business, and Enterprise.
+> Availability depends on your plan. The model picker is available on
+> Copilot Pro, Pro+, Business, and Enterprise — Free does not get it.
 
 Re-run the same prompt with two different models and compare responses:
 > Refactor `database.py` to split task operations and user operations into

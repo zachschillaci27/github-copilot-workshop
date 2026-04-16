@@ -1,5 +1,5 @@
 ---
-mode: ask
+agent: ask
 description: Review code against TaskFlow standards
 ---
 

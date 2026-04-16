@@ -111,8 +111,8 @@ In Chat:
 Copilot lists them, grouped by server. You can also click the **Tools** icon
 in the Chat view.
 
-### 7.6 — Scoped tool access via chat modes and prompts
-You can restrict any prompt file or chat mode to a specific MCP server:
+### 7.6 — Scoped tool access via custom agents and prompts
+You can restrict any prompt file or custom agent to a specific MCP server:
 ```yaml
 ---
 tools: ['github/*']        # only GitHub MCP tools

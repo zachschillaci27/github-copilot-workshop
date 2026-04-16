@@ -8,7 +8,7 @@ safe.
 ## Concepts
 
 ### What is agent mode?
-A Chat mode where Copilot can:
+A built-in Chat mode (selected via the agent/mode picker) where Copilot can:
 - Read and edit **multiple files** in one turn
 - Run terminal commands (via allowlist) and iterate on output
 - Call MCP tools
@@ -21,7 +21,7 @@ Copilot to **do** something, not just describe it.
 
 | Rail | Where | Effect |
 |------|-------|--------|
-| **Checkpoint** | Chat header | One-click revert of all agent-made edits in the turn |
+| **Restore Checkpoint** | Chat header | One-click revert of all agent-made edits in the turn |
 | `chat.agent.maxRequests` | `.vscode/settings.json` | Upper bound on tool calls per turn (default 25) |
 | `chat.tools.terminal.autoApprove` | `.vscode/settings.json` | Allow/deny terminal commands without prompting |
 | `chat.tools.edits.autoApprove` | `.vscode/settings.json` | Which edit tools bypass per-file approval |
@@ -49,7 +49,7 @@ Watch Copilot:
 3. Run `uv run pytest` and iterate if anything fails
 
 ### 4.2 — Checkpoint rollback
-Still in the same Chat session, click **Restore checkpoint** at the top of
+Still in the same Chat session, click **Restore Checkpoint** at the top of
 the agent's response. All edits made during that turn are reverted in one
 click. Check `git status` — the working tree is clean.
 

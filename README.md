@@ -2,7 +2,7 @@
 
 A hands-on workshop to learn **GitHub Copilot** from beginner to
 intermediate — inline completions, Copilot Chat, agent mode, custom
-instructions, prompt files, custom chat modes, MCP servers, and the
+instructions, prompt files, custom agents, MCP servers, and the
 Copilot Coding Agent — all exercised against a real Python FastAPI project.
 
 ## What You'll Learn
@@ -14,7 +14,7 @@ Copilot Coding Agent — all exercised against a real Python FastAPI project.
 | 3 | [Settings & Permissions](exercises/03-settings-and-permissions.md) | `.vscode/settings.json`, content exclusion, model picker |
 | 4 | [Agent Mode & Auto-Approve](exercises/04-agent-mode.md) | Multi-file edits, checkpoints, terminal auto-approve |
 | 5 | [Prompt Files](exercises/05-prompt-files.md) | Reusable `/slash` commands in `.github/prompts/` |
-| 6 | [Custom Chat Modes](exercises/06-chat-modes.md) | Scoped personas in `.github/chatmodes/` |
+| 6 | [Custom Agents](exercises/06-custom-agents.md) | Scoped personas in `.github/agents/` (formerly "chat modes") |
 | 7 | [MCP Servers](exercises/07-mcp-servers.md) | Extending Copilot with external tools via `.vscode/mcp.json` |
 | 8 | [Context Management](exercises/08-context-management.md) | `@workspace`, `#file`, `#selection`, `#codebase`, `#changes` |
 | 9 | [Real-World Workflow](exercises/09-real-world-workflow.md) | End-to-end feature + Copilot Coding Agent on an issue |
@@ -103,9 +103,9 @@ tests/
 │   ├── test-coverage.prompt.md     # /test-coverage
 │   ├── debug.prompt.md             # /debug
 │   └── changelog.prompt.md         # /changelog
-├── chatmodes/
-│   ├── planner.chatmode.md         # read-only planning mode
-│   └── reviewer.chatmode.md        # structured code review
+├── agents/
+│   ├── planner.agent.md            # read-only planning agent
+│   └── reviewer.agent.md           # structured code review
 └── workflows/
     └── copilot-setup-steps.yml     # env setup for the Copilot Coding Agent
 
@@ -137,7 +137,7 @@ This workshop covers the following GitHub Copilot features:
 - **Settings & enablement** — per-language toggle, content exclusion, auto-approve
 - **Ask / Edit / Agent modes** — when to use each
 - **Prompt files** — reusable `/slash` commands with `${input:…}` variables
-- **Custom chat modes** — personas with scoped tools (planner, reviewer)
+- **Custom agents** (formerly "chat modes") — personas with scoped tools (planner, reviewer)
 - **MCP servers** — extending Copilot with GitHub, filesystem, Playwright, etc.
 - **Chat variables & participants** — `#file`, `#selection`, `#codebase`, `#changes`, `@workspace`, `@terminal`, `@github`
 - **Built-in slash commands** — `/fix`, `/tests`, `/explain`, `/doc`, `/new`, `/clear`

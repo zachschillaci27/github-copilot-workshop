@@ -13,23 +13,34 @@ anywhere.
 ### Location
 ```
 .github/prompts/<name>.prompt.md        # Workspace (shared via git)
-# or user profile for personal prompt files
+# or VS Code user profile for personal prompt files
 ```
+
+The location is configurable via the `chat.promptFilesLocations` VS Code
+setting.
 
 ### Frontmatter
 
 | Field | Purpose |
 |-------|---------|
-| `mode` | `ask`, `edit`, or `agent` — which chat mode the prompt runs in |
 | `description` | Shown in the slash-command menu |
-| `tools` | (optional) Allow-list of tools; `server/*` for all tools from an MCP server |
+| `agent` | `ask`, `agent`, `plan`, or the name of a custom agent (Exercise 6) |
+| `tools` | (optional) Allow-list of tools; when set, `agent:` defaults to `agent` |
 | `model` | (optional) Pin a specific model |
+| `name` | (optional) Slash-command name; defaults to filename |
+| `argument-hint` | (optional) Placeholder text in the slash menu |
+
+> **Note on the field name.** VS Code used to call this `mode:` — it's now
+> `agent:` (the rename happened alongside the chat-modes → custom-agents
+> rename in early 2026). The legacy `mode:` value `edit` was consolidated
+> into `agent`.
 
 ### Variables
 - `${selection}` — the current editor selection
 - `${file}` — the active file
 - `${workspaceFolder}` — repo root
-- `${input:name:placeholder}` — prompt the user for input
+- `${input:variableName}` — prompt the user for input
+- `${input:variableName:placeholder}` — prompt with a placeholder hint
 
 ### Dynamic context
 Use chat variables inside the prompt body:
@@ -68,7 +79,7 @@ cat .github/prompts/add-endpoint.prompt.md
 ```
 
 Notice:
-- `mode: agent` — this one needs to edit files and run tests
+- `agent: agent` — this one needs to edit files and run tests
 - `${input:spec:…}` — the first placeholder becomes a labeled form field
 - The body is plain Markdown, readable as documentation too
 
@@ -76,7 +87,7 @@ Notice:
 Create `.github/prompts/refactor.prompt.md`:
 ```markdown
 ---
-mode: agent
+agent: agent
 description: Refactor the current selection against project conventions
 ---
 
@@ -100,7 +111,7 @@ Select a function in `src/taskflow/routers/tasks.py` and run `/refactor`.
 Create `.github/prompts/commit-message.prompt.md`:
 ```markdown
 ---
-mode: ask
+agent: ask
 description: Suggest a conventional-commit message for the current diff
 ---
 
@@ -122,9 +133,9 @@ automatically.
 Create `.github/prompts/doc-only.prompt.md`:
 ```markdown
 ---
-mode: agent
+agent: agent
 description: Add docstrings without changing any logic
-tools: ['codebase', 'editFiles']
+tools: ['search/codebase', 'edit']
 ---
 
 Add Google-style docstrings to every public function in ${input:target:a file path}.
@@ -136,7 +147,12 @@ Rules:
 ```
 
 The restricted `tools` list keeps the agent from running arbitrary terminal
-commands — only the editor + codebase search are available.
+commands — only codebase search + file edit.
+
+> Tool IDs use the namespaced form (`search/codebase`, `search/usages`,
+> `web/fetch`, `edit`, `read/terminalLastCommand`, `agent`, …). Open VS
+> Code's Chat → **Configure Tools** picker to see the current authoritative
+> list; VS Code silently ignores IDs it doesn't recognise.
 
 ### 5.6 — Interop with Claude Code skills
 Open the side-by-side:
@@ -150,7 +166,7 @@ Same intent, two flavours:
 | Copilot prompt file | Claude Code skill |
 |---------------------|-------------------|
 | `.github/prompts/<name>.prompt.md` | `.claude/skills/<name>/SKILL.md` |
-| `mode: agent` | (implicit — agents chosen by model) |
+| `agent: agent` | (implicit — agent chosen by model) |
 | `tools: [...]` | `allowed-tools: …` |
 | `${input:name}` | `$ARGUMENTS` |
 | `#changes`, `#codebase` | `` !`git diff` ``, `Grep`, `Glob` |
@@ -159,7 +175,7 @@ Keeping both lets you run the same repo through either tool.
 
 ## Key Takeaways
 - Prompt files = reusable `/slash` commands in `.github/prompts/`
-- `mode: ask | edit | agent` picks the Chat mode the prompt runs in
+- Frontmatter field is `agent:` (was `mode:`); values are `ask | agent | plan | <custom-agent-name>`
 - `${input:name:placeholder}` and chat variables (`#file`, `#changes`, `#codebase`) inject dynamic context
-- `tools: [...]` restricts what the prompt is allowed to do — useful for "doc-only" or "read-only" prompts
+- `tools: [...]` restricts what the prompt is allowed to do — use namespaced IDs (`search/codebase`, `edit`, `web/fetch`, …)
 - Concept maps closely to Claude Code skills — identical idea, different file layout

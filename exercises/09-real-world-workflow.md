@@ -85,6 +85,10 @@ In the issue's right sidebar, set **Assignees** → `Copilot`. Within a
 minute, a draft PR appears linked to the issue. Copilot posts its
 implementation plan as the first comment.
 
+> **Permissions:** you can also trigger or iterate the coding agent with
+> `@copilot` mentions in comments — but only users with **write access** to
+> the repo can do so. Read-only collaborators cannot summon the agent.
+
 ### Step C — Watch the agent work
 Open the PR's **Files changed** tab. The agent commits iteratively. You'll
 see test runs in the Checks tab (powered by
@@ -133,10 +137,10 @@ parallel PRs. See how the async workflow scales compared to pair-programming
 in agent mode.
 
 ## Key Takeaways
-- Copilot features compose: instructions → prompt files → chat modes → agent → PR
+- Copilot features compose: instructions → prompt files → custom agents → agent mode → PR
 - **Custom instructions** carry project conventions across every surface
 - **Prompt files** automate repeated workflows (`/review`, `/add-endpoint`, `/test-coverage`)
-- **Chat modes** swap in different personas (planner / reviewer) in seconds
+- **Custom agents** swap in different personas (planner / reviewer) in seconds
 - **Local agent mode** for pair-programming; **Copilot Coding Agent** for async tasks
 - **MCP** bridges external systems (`@github`, databases, browsers)
 - The same conventions file can serve Copilot, Claude Code, Cursor, and more — keep `.github/copilot-instructions.md`, `CLAUDE.md`, and/or `AGENTS.md` in sync

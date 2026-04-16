@@ -179,7 +179,7 @@ def main():
         [
             ["1. Foundations", "Install, inline, Chat, Ask/Edit/Agent modes", "25 min"],
             ["2. Configuration", "Custom instructions, settings, model picker", "20 min"],
-            ["3. Reusable workflows", "Agent mode, prompt files, chat modes", "25 min"],
+            ["3. Reusable workflows", "Agent mode, prompt files, custom agents", "25 min"],
             [
                 "4. Advanced",
                 "MCP, Copilot Coding Agent, context management",
@@ -432,7 +432,7 @@ def main():
         ],
         code=[
             "---",
-            "mode: agent",
+            "agent: agent",
             "description: Scaffold a new TaskFlow endpoint with tests",
             "---",
             "",
@@ -453,7 +453,7 @@ def main():
         "Prompt File Frontmatter",
         ["Field", "Purpose"],
         [
-            ["mode", "ask | edit | agent — which chat mode it runs in"],
+            ["agent", "ask | agent | plan | <custom-agent-name>"],
             ["description", "Shown in the slash-command menu"],
             ["tools", "(Optional) allow-list of tools / MCP globs"],
             ["model", "(Optional) pin a specific model"],
@@ -486,21 +486,20 @@ def main():
         ],
     )
 
-    # --- SLIDE 21: Chat modes ---
+    # --- SLIDE 21: Custom agents ---
     make_content_slide(
         prs,
-        "Exercise 6 — Custom Chat Modes",
+        "Exercise 6 — Custom Agents",
         [
-            "Persistent personas with scoped tools. Sit alongside Ask / Edit / Agent",
-            "in the mode picker.",
+            "Persistent personas with scoped tools. Sit alongside built-in Ask",
+            "and Agent in the agent picker. Renamed from 'chat modes' in 2026.",
             "",
-            ".github/chatmodes/<name>.chatmode.md",
+            ".github/agents/<name>.agent.md",
         ],
         code=[
             "---",
             "description: Read-only planner — designs without editing",
-            "tools: ['codebase','search','usages','findTestFiles',",
-            "        'problems','changes','fetch']",
+            "tools: ['search/codebase', 'search/usages', 'web/fetch']",
             "---",
             "",
             "You are in planning mode. Produce a concrete implementation",
@@ -511,13 +510,13 @@ def main():
     # --- SLIDE 22: Prompts vs modes ---
     make_table_slide(
         prs,
-        "Prompt Files vs Chat Modes",
-        ["Prompt file", "Chat mode"],
+        "Prompt Files vs Custom Agents",
+        ["Prompt file", "Custom agent"],
         [
             ["One-shot reusable task", "Persistent working persona"],
             ["Needs ${input:…} placeholders", "Multi-turn conversation"],
-            ["Ships in /slash menu", "Ships in mode picker"],
-            ["Invocation: /review src/…", "Invocation: switch mode, chat freely"],
+            ["Ships in /slash menu", "Ships in agent picker"],
+            ["Invocation: /review src/…", "Invocation: switch agent, chat freely"],
             ["Good for: scaffolding, review, docs", "Good for: planner, reviewer, test-writer"],
         ],
     )
@@ -648,7 +647,7 @@ def main():
             "  3. Create one prompt file for your most repeated workflow",
             "",
             "This month:",
-            "  4. Build a planner / reviewer chat mode for your team",
+            "  4. Build a planner / reviewer custom agent for your team",
             "  5. Try assigning a small issue to @copilot and review the PR",
         ],
     )
@@ -662,7 +661,7 @@ def main():
             ["Repo instructions", ".github/copilot-instructions.md", "Team-wide conventions"],
             ["Path instructions", ".github/instructions/*.instructions.md", "Scoped rules (applyTo)"],
             ["Prompt files", ".github/prompts/*.prompt.md", "Reusable /slash commands"],
-            ["Chat modes", ".github/chatmodes/*.chatmode.md", "Scoped personas"],
+            ["Custom agents", ".github/agents/*.agent.md", "Scoped personas"],
             ["Workspace settings", ".vscode/settings.json", "Enablement + auto-approve"],
             ["MCP", ".vscode/mcp.json", "External tools"],
             ["Coding agent env", ".github/workflows/copilot-setup-steps.yml", "Cloud-agent bootstrap"],

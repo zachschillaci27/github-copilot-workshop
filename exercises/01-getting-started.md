@@ -72,7 +72,7 @@ Switch to **Agent** mode and ask:
 > tell me if anything broke.
 
 Watch Copilot edit multiple files, run `uv run pytest`, and iterate if tests
-fail. The **Checkpoint** button in the Chat header reverts everything in one
+fail. The **Restore Checkpoint** button in the Chat header reverts everything in one
 click.
 
 ### 1.6 — Attach Files and Selections
@@ -96,7 +96,7 @@ Try: select `create_task` in `database.py` → `/tests`.
 ### 1.8 — Interrupt & Recover
 While Copilot is running in Agent mode, click the **Stop** button (or press
 the hotkey shown in the Chat). Then:
-- Click the **Checkpoint** indicator to revert its edits in one click
+- Click the **Restore Checkpoint** indicator to revert its edits in one click
 - Or say *"undo those changes"* and let Copilot revert them
 
 ## Key Takeaways
