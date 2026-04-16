@@ -47,6 +47,8 @@ Open the Chat view (`Ctrl/Cmd+Alt+I`) and ask:
 Notice the **References** panel — Copilot lists the files it read, including
 `.github/copilot-instructions.md`.
 
+Accept the diff with `Tab`/`Enter`.
+
 ### 1.3 — Ask / Edit / Agent Modes
 At the bottom of the Chat view there's a mode picker. Try each:
 

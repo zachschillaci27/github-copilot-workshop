@@ -25,7 +25,7 @@ Copilot to **do** something, not just describe it.
 | `chat.agent.maxRequests` | `.vscode/settings.json` | Upper bound on tool calls per turn (default 25) |
 | `chat.tools.terminal.autoApprove` | `.vscode/settings.json` | Allow/deny terminal commands without prompting |
 | `chat.tools.edits.autoApprove` | `.vscode/settings.json` | Which edit tools bypass per-file approval |
-| **Network filter** (optional) | `chat.agent.networkFilter`, `*.allowedNetworkDomains` | Domain allowlist for HTTP tools |
+| **Network filter** (optional) | `chat.agent.allowedNetworkDomains` | Domain allowlist for HTTP tools |
 
 ### Available tools (agent mode)
 - File editors (`apply_patch`, create/edit)

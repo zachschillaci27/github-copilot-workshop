@@ -1,6 +1,7 @@
 ---
+name: planner
 description: Read-only planner — designs implementations without editing files
-tools: ['search/codebase', 'search/usages', 'web/fetch']
+tools: ["read", "search", "web"]
 ---
 
 # Planner

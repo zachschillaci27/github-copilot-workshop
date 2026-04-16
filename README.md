@@ -13,7 +13,7 @@ Copilot Coding Agent — all exercised against a real Python FastAPI project.
 | 2 | [Custom Instructions](exercises/02-custom-instructions.md) | `.github/copilot-instructions.md`, path-scoped `.instructions.md` |
 | 3 | [Settings & Permissions](exercises/03-settings-and-permissions.md) | `.vscode/settings.json`, content exclusion, model picker |
 | 4 | [Agent Mode & Auto-Approve](exercises/04-agent-mode.md) | Multi-file edits, checkpoints, terminal auto-approve |
-| 5 | [Prompt Files](exercises/05-prompt-files.md) | Reusable `/slash` commands in `.github/prompts/` |
+| 5 | [Prompt Files](exercises/05-prompt-files.md) | Reusable `/slash` commands in `.github/prompts/` (IDE-only preview — VS Code, Visual Studio, JetBrains) |
 | 6 | [Custom Agents](exercises/06-custom-agents.md) | Scoped personas in `.github/agents/` (formerly "chat modes") |
 | 7 | [MCP Servers](exercises/07-mcp-servers.md) | Extending Copilot with external tools via `.vscode/mcp.json` |
 | 8 | [Context Management](exercises/08-context-management.md) | `@workspace`, `#file`, `#selection`, `#codebase`, `#changes` |

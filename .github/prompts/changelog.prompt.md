@@ -1,5 +1,5 @@
 ---
-agent: ask
+agent: agent
 description: Generate a changelog entry from recent commits
 ---
 

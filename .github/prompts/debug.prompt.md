@@ -1,5 +1,5 @@
 ---
-agent: ask
+agent: agent
 description: Investigate a bug or error message
 ---
 

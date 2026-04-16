@@ -13,35 +13,41 @@ anywhere.
 ### Location
 ```
 .github/prompts/<name>.prompt.md        # Workspace (shared via git)
-# or VS Code user profile for personal prompt files
+# or IDE user profile for personal prompt files
 ```
 
 The location is configurable via the `chat.promptFilesLocations` VS Code
 setting.
+
+> **IDE-only preview.** Per the GitHub docs, prompt files are in public
+> preview and currently only available in VS Code, Visual Studio, and
+> JetBrains IDEs — they don't run from `copilot.github.com`.
 
 ### Frontmatter
 
 | Field | Purpose |
 |-------|---------|
 | `description` | Shown in the slash-command menu |
-| `agent` | `ask`, `agent`, `plan`, or the name of a custom agent (Exercise 6) |
+| `agent` | `agent` (default), or the name of a custom agent (Exercise 6). VS Code also accepts `ask` / `plan` |
 | `tools` | (optional) Allow-list of tools; when set, `agent:` defaults to `agent` |
 | `model` | (optional) Pin a specific model |
-| `name` | (optional) Slash-command name; defaults to filename |
 | `argument-hint` | (optional) Placeholder text in the slash menu |
 
 > **Note on the field name.** VS Code used to call this `mode:` — it's now
 > `agent:` (the rename happened alongside the chat-modes → custom-agents
-> rename in early 2026). The legacy `mode:` value `edit` was consolidated
-> into `agent`.
+> rename in early 2026). The GitHub Copilot docs show `agent: 'agent'` in
+> every current example; `ask` and `plan` are VS Code extensions of that
+> field and not documented on docs.github.com.
 
 ### Variables
 - `${selection}` — the current editor selection
 - `${input:variableName}` — prompt the user for input
 - `${input:variableName:placeholder}` — prompt with a placeholder hint
-- `${file}` and `${workspaceFolder}` — general VS Code variables that may
-  also resolve inside prompt files (only `${selection}` and `${input:…}`
-  are explicitly documented as prompt-file variables)
+
+> Only `${selection}` and `${input:…}` are documented as prompt-file
+> variables. General VS Code predefined variables like `${file}` and
+> `${workspaceFolder}` may also resolve in practice, but rely on them only
+> inside VS Code — they are not part of the documented contract.
 
 ### Dynamic context
 Use chat variables inside the prompt body:
@@ -136,7 +142,7 @@ Create `.github/prompts/doc-only.prompt.md`:
 ---
 agent: agent
 description: Add docstrings without changing any logic
-tools: ['search/codebase', 'edit']
+tools: ["read", "search", "edit"]
 ---
 
 Add Google-style docstrings to every public function in ${input:target:a file path}.
@@ -148,12 +154,14 @@ Rules:
 ```
 
 The restricted `tools` list keeps the agent from running arbitrary terminal
-commands — only codebase search + file edit.
+commands — only file reads, codebase search, and file edits. (If you *do*
+want it to run tests, add `"execute"`.)
 
-> Tool IDs use the namespaced form (`search/codebase`, `search/usages`,
-> `web/fetch`, `edit`, `read/terminalLastCommand`, `agent`, …). Open VS
-> Code's Chat → **Configure Tools** picker to see the current authoritative
-> list; VS Code silently ignores IDs it doesn't recognise.
+> **Tool aliases (per docs.github.com).** The documented aliases are flat:
+> `read`, `edit`, `search`, `web`, `execute`, `agent`, `todo`. MCP servers
+> are namespaced — e.g. `github/*`, `playwright/*`, or `<mcp-server-id>/*`.
+> See the [custom agents reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
+> for the authoritative list.
 
 ### 5.6 — Interop with Claude Code skills
 Open the side-by-side:
@@ -176,7 +184,7 @@ Keeping both lets you run the same repo through either tool.
 
 ## Key Takeaways
 - Prompt files = reusable `/slash` commands in `.github/prompts/`
-- Frontmatter field is `agent:` (was `mode:`); values are `ask | agent | plan | <custom-agent-name>`
+- Frontmatter field is `agent:` (was `mode:`); documented value is `agent`, VS Code also accepts `ask` / `plan` / custom agent names
 - `${input:name:placeholder}` and chat variables (`#file`, `#changes`, `#codebase`) inject dynamic context
-- `tools: [...]` restricts what the prompt is allowed to do — use namespaced IDs (`search/codebase`, `edit`, `web/fetch`, …)
+- `tools: [...]` restricts what the prompt is allowed to do — use the flat aliases (`read`, `edit`, `search`, `web`, `execute`, `agent`, `todo`) or `github/*` / `playwright/*` for MCP servers
 - Concept maps closely to Claude Code skills — identical idea, different file layout
