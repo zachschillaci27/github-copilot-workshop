@@ -34,8 +34,10 @@ GitHub Copilot workshop (and optionally Claude Code).
 - Use type hints on all function signatures
 - Prefer `str | None` over `Optional[str]`
 - Keep endpoint handlers thin - business logic goes in database layer
-- Tests use the `client` fixture from `conftest.py`
+- Tests use the `client` fixture from `conftest.py` (use `empty_db` when you
+  need a database with no seed data)
 - Sort imports with `ruff` (isort-compatible)
+- Line length 88, Python 3.11+
 
 ## API Design
 
@@ -43,3 +45,11 @@ GitHub Copilot workshop (and optionally Claude Code).
 - Use proper HTTP status codes (201 for create, 204 for delete)
 - Return 404 with detail message for missing resources
 - Use query parameters for filtering, not request body
+
+## Workshop Notes
+
+- When asked to scaffold a new endpoint, mirror the pattern in
+  `src/taskflow/routers/tasks.py` and add tests in `tests/`.
+- See the **Interop note** at the top for the relationship with
+  `.github/copilot-instructions.md` — keep both in sync when conventions
+  change.

@@ -1,6 +1,7 @@
 ---
+name: reviewer
 description: Senior reviewer — read-only deep review of recent changes
-tools: ['search/codebase', 'search/usages']
+tools: ["read", "search"]
 ---
 
 # Reviewer

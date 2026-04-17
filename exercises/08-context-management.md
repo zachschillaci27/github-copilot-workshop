@@ -21,6 +21,9 @@ Inline references that inject specific context into the prompt.
 | `#fetch` | Fetch a URL (with prompt) |
 | `#todos` | Tracked implementation progress |
 
+> Availability of individual chat variables varies by VS Code version. Type
+> `#` in the Chat input to see what's currently live in your install.
+
 ### Chat participants (`@…`)
 Specialist subagents that know how to answer certain kinds of questions.
 

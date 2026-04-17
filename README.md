@@ -13,7 +13,7 @@ Copilot Coding Agent — all exercised against a real Python FastAPI project.
 | 2 | [Custom Instructions](exercises/02-custom-instructions.md) | `.github/copilot-instructions.md`, path-scoped `.instructions.md` |
 | 3 | [Settings & Permissions](exercises/03-settings-and-permissions.md) | `.vscode/settings.json`, content exclusion, model picker |
 | 4 | [Agent Mode & Auto-Approve](exercises/04-agent-mode.md) | Multi-file edits, checkpoints, terminal auto-approve |
-| 5 | [Prompt Files](exercises/05-prompt-files.md) | Reusable `/slash` commands in `.github/prompts/` |
+| 5 | [Prompt Files](exercises/05-prompt-files.md) | Reusable `/slash` commands in `.github/prompts/` (IDE-only preview — VS Code, Visual Studio, JetBrains) |
 | 6 | [Custom Agents](exercises/06-custom-agents.md) | Scoped personas in `.github/agents/` (formerly "chat modes") |
 | 7 | [MCP Servers](exercises/07-mcp-servers.md) | Extending Copilot with external tools via `.vscode/mcp.json` |
 | 8 | [Context Management](exercises/08-context-management.md) | `@workspace`, `#file`, `#selection`, `#codebase`, `#changes` |
@@ -24,10 +24,10 @@ Copilot Coding Agent — all exercised against a real Python FastAPI project.
 - Python 3.11+
 - [uv](https://docs.astral.sh/uv/) installed (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
 - [Visual Studio Code](https://code.visualstudio.com/) with the **GitHub Copilot** and **GitHub Copilot Chat** extensions
-- A GitHub account with an active Copilot subscription (Free, Pro, Business, or Enterprise)
+- A GitHub account with an active Copilot subscription — any tier works: Free, Student, Pro, Pro+, Business, or Enterprise (note: the model picker and Copilot Coding Agent are gated on Pro and above)
 
 Optional but referenced in some exercises:
-- [GitHub CLI](https://cli.github.com/) with the Copilot extension (`gh extension install github/gh-copilot`)
+- The standalone [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-cli) if you want terminal-native chat (the old `gh copilot` extension has been retired in favour of this)
 - A fine-grained GitHub personal access token (for the GitHub MCP exercise)
 
 ## Quick Start
@@ -121,7 +121,8 @@ project can be instrumented for multiple coding agents:
 
 ```
 CLAUDE.md                           # Project instructions Claude Code reads
-.claude/skills/                     # Claude-flavoured equivalents of prompt files
+.claude/skills/add-endpoint/        # Single Claude skill kept as a side-by-side
+                                    # reference to .github/prompts/add-endpoint.prompt.md
 ```
 
 Copilot doesn't read these, and Claude doesn't read the `.github/` files —
