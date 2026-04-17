@@ -15,9 +15,10 @@ Copilot Coding Agent — all exercised against a real Python FastAPI project.
 | 4 | [Agent Mode & Auto-Approve](exercises/04-agent-mode.md) | Multi-file edits, checkpoints, terminal auto-approve |
 | 5 | [Prompt Files](exercises/05-prompt-files.md) | Reusable `/slash` commands in `.github/prompts/` (IDE-only preview — VS Code, Visual Studio, JetBrains) |
 | 6 | [Custom Agents](exercises/06-custom-agents.md) | Scoped personas in `.github/agents/` (formerly "chat modes") |
-| 7 | [MCP Servers](exercises/07-mcp-servers.md) | Extending Copilot with external tools via `.vscode/mcp.json` |
-| 8 | [Context Management](exercises/08-context-management.md) | `@workspace`, `#file`, `#selection`, `#codebase`, `#changes` |
-| 9 | [Real-World Workflow](exercises/09-real-world-workflow.md) | End-to-end feature + Copilot Coding Agent on an issue |
+| 7 | [Agent Hooks](exercises/07-hooks.md) | Lifecycle hooks for formatting, security, auditing, and context injection |
+| 8 | [MCP Servers](exercises/08-mcp-servers.md) *(optional)* | Extending Copilot with external tools via `.vscode/mcp.json` |
+| 9 | [Context Management](exercises/09-context-management.md) | `@workspace`, `#file`, `#selection`, `#codebase`, `#changes` |
+| 10 | [Real-World Workflow](exercises/10-real-world-workflow.md) | End-to-end feature + Copilot Coding Agent on an issue |
 
 ## Prerequisites
 

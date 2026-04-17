@@ -1,4 +1,4 @@
-# Exercise 10: Agent Hooks
+# Exercise 7: Agent Hooks
 
 ## Goal
 Automate and enforce behaviour around agent sessions with **hooks** — shell

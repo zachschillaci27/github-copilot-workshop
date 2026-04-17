@@ -1,4 +1,4 @@
-# Exercise 8: Context Management
+# Exercise 9: Context Management
 
 ## Goal
 Control what Copilot sees — attach the right files, use chat variables and
@@ -115,7 +115,7 @@ Why did this fail?
 ```
 
 ### 8.6 — `@github` for cross-repo context
-With the GitHub MCP configured (Exercise 7) **or** the `@github` participant
+With the GitHub MCP configured (Exercise 8) **or** the `@github` participant
 available by default:
 ```
 @github list the recent issues in this repo and summarise them

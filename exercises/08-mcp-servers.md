@@ -1,4 +1,4 @@
-# Exercise 7: MCP Servers — External Integrations
+# Exercise 8: MCP Servers — External Integrations (optional)
 
 ## Goal
 Extend Copilot agent mode with external tools (GitHub, filesystem, databases,

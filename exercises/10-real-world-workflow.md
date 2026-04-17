@@ -1,4 +1,4 @@
-# Exercise 9: Real-World Workflow — Putting It All Together
+# Exercise 10: Real-World Workflow — Putting It All Together
 
 ## Goal
 Combine every Copilot feature you've learned into a realistic
@@ -66,7 +66,7 @@ Tip: run `/commit-message` (if you created it in Exercise 5.4) to get a
 conventional-commit subject and body from the diff.
 
 ### Step 7 — Open a PR
-With the GitHub MCP server connected (Exercise 7):
+With the GitHub MCP server connected (Exercise 8):
 ```
 @github open a PR from feature/task-search to main. Title: "Add task search endpoint". Body: summarize the change.
 ```
